@@ -5,8 +5,8 @@ from tkinter.simpledialog import askstring as prompt
 import customtkinter
 
 '''
-nombre:
-apellido:
+nombre: Sofía
+apellido: Golnner
 ---
 TP: ES_Facturaciones
 ---
@@ -52,13 +52,53 @@ class App(customtkinter.CTk):
         self.btn_total_iva.grid(row=5, pady=10, columnspan=2, sticky="nsew")
 
     def btn_total_on_click(self):
-        pass
+        importe_uno_str =self.txt_importe_1.get()
+        importe_dos_str =self.txt_importe_2.get()
+        importe_tres_str =self.txt_importe_3.get()
+        importe_uno = int(importe_uno_str)
+        importe_dos = int(importe_dos_str)
+        importe_tres = int(importe_tres_str)
+        suma = importe_uno + importe_dos + importe_tres
+        mensaje = f"La suma de los tres importes es: {suma}"
+        alert("Resultado", mensaje)
+        self.txt_importe_1.delete(0, "end")
+        self.txt_importe_2.delete(0, "end")
+        self.txt_importe_3.delete(0, "end")
+
+
 
     def btn_promedio_on_click(self):
-        pass
+        importe_uno_str =self.txt_importe_1.get()
+        importe_dos_str =self.txt_importe_2.get()
+        importe_tres_str =self.txt_importe_3.get()
+        importe_uno = int(importe_uno_str)
+        importe_dos = int(importe_dos_str)
+        importe_tres = int(importe_tres_str)
+        suma = importe_uno + importe_dos + importe_tres
+        promedio = suma / 3
+        mensaje = f"El promedio de los tres importes es: {promedio}"
+        alert("Resultado", mensaje)
+        self.txt_importe_1.delete(0, "end")
+        self.txt_importe_2.delete(0, "end")
+        self.txt_importe_3.delete(0, "end")
+
 
     def btn_total_iva_on_click(self):
-        pass      
+        importe_uno_str =self.txt_importe_1.get()
+        importe_dos_str =self.txt_importe_2.get()
+        importe_tres_str =self.txt_importe_3.get()
+        importe_uno = int(importe_uno_str)
+        importe_dos = int(importe_dos_str)
+        importe_tres = int(importe_tres_str)
+        suma = importe_uno + importe_dos + importe_tres
+        sacar_iva = suma * 21 / 100
+        importe_con_iva = suma + sacar_iva
+        
+        mensaje = f"El total con iva es de: {importe_con_iva}"
+        alert("Resultado", mensaje)
+        self.txt_importe_1.delete(0, "end")
+        self.txt_importe_2.delete(0, "end")
+        self.txt_importe_3.delete(0, "end")      
     
 if __name__ == "__main__":
     app = App()
